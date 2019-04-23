@@ -1,4 +1,4 @@
-package com.williamssonoma.challenge.williamssonomachallenge.aspect.log;
+package com.williamssonoma.challenge.williamssonomachallenge.aspect.valid;
 
 
 import org.aspectj.lang.JoinPoint;

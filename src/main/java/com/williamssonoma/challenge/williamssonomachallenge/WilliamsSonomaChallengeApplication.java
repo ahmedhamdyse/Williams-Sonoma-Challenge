@@ -26,6 +26,6 @@ public class WilliamsSonomaChallengeApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        zipCodeProcessor.processZipCodes(zipCodeValidator.validSortedZipCodes(Arrays.asList(args))).forEach(System.out::println);
+        zipCodeProcessor.processZipCodes(zipCodeValidator.validSortedZipCodes(Arrays.asList(args))).forEach(zipCode -> log.info(zipCode.toString()));
     }
 }

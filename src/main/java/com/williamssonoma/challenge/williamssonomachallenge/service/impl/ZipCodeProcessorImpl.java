@@ -26,7 +26,7 @@ public class ZipCodeProcessorImpl implements ZipCodeProcessor {
                 return zipCode2;
             }
 
-        }).ifPresent(zipCode -> processedZipCodeList.add(zipCode));
+        }).ifPresent(processedZipCodeList::add);
         return processedZipCodeList;
     }
 }

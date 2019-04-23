@@ -13,7 +13,7 @@ public final class ZipCodeConstants {
     private ZipCodeConstants() {
     }
 
-    public static final Pattern ZIP_CODE_PATTERN = Pattern.compile("\\[\\d{5},\\d{5}\\]");
+    public static final Pattern ZIP_CODE_PATTERN = Pattern.compile("\\[\\d{5},\\d{5}]");
     public static final int LOWER_BOUND_START_INDEX = 1;
     public static final int LOWER_BOUND_END_INDEX = 6;
     public static final int UPPER_BOUND_START_INDEX = 7;

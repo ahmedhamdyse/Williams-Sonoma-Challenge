@@ -21,17 +21,17 @@ public class ZipCodeValidatorImpl implements ZipCodeValidator {
     @Override
     public List<ZipCode> validSortedZipCodes(List<String> zipCodes) {
 
-        return zipCodes.stream().map(this::validPattern).filter(Matcher::find).
+        return zipCodes.stream().map(this::cleansingInputOnPattern).filter(Matcher::find).
                 map(matcher -> ZipCode.of(Integer.parseInt(matcher.group().substring(LOWER_BOUND_START_INDEX, LOWER_BOUND_END_INDEX)),
                         Integer.parseInt(matcher.group().substring(UPPER_BOUND_START_INDEX, UPPER_BOUND_END_INDEX))))
-                .filter(this::validRange).sorted(Comparator.comparing(ZipCode::getLowerBound)).collect(Collectors.toList());
+                .filter(this::cleansingInputOnRange).sorted(Comparator.comparing(ZipCode::getLowerBound)).collect(Collectors.toList());
     }
 
-    private Matcher validPattern(String zipCode) {
+    private Matcher cleansingInputOnPattern(String zipCode) {
         return ZIP_CODE_PATTERN.matcher(zipCode.replaceAll(" ", ""));
     }
 
-    private boolean validRange(ZipCode zipCode) {
+    private boolean cleansingInputOnRange(ZipCode zipCode) {
         return zipCode.getLowerBound() <= zipCode.getUpperBound();
     }
 }
